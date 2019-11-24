@@ -1,0 +1,7 @@
+{
+    "baseUrl": "https://www.binance.com/en",
+    "video": false,
+    "chromeWebSecurity": false,
+    "reporter": "mocha-allure-reporter",
+    "pageLoadTimeout": 120000
+}

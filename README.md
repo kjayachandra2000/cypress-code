@@ -1,0 +1,35 @@
+# Functional UI Coding Challenge Tests
+
+### Summary
+This directory contains the UI Tests for the  front-end projects, these tests are written in nodejs using [mocha](https://mochajs.org/) test framework, [cypress](https://www.cypress.io/), and [Allure](https://www.npmjs.com/package/@wdio/allure-reporter) for reporting.
+
+### Code Guidelines
+- Code should be clean and kept to the same standard as production code - make sure unused variables and methods are removed, code is correctly formatted, with no random newlines and whitespaces. Where possible node js style guidelines should be followed.
+- I recommend using [Visual Studio Code](https://code.visualstudio.com/) and installing the eslintrc extension. ***Warnings must not be ignored.***
+- Please eslint plugin. 
+
+### Installation
+You should have Node.js installed. If you don't have Node installed, I recommend installing NVM to assist managing multiple active Node.js versions. My recommended version is `10+`.
+    
+Once node is installed, execute:   
+
+    npm install
+
+### How do I run the tests on my local machine?
+
+    npm test -- --browser=chrome
+    
+### Launch Arguments
+By default tests are executed using a Chrome browser. 
+
+To switch the browser under test:
+ 
+    npm test -- --browser=firefox 
+
+To run tests in headless mode:
+
+    npm run test -- --browser electron
+
+### Generate Allure report 
+    
+    npm run report
