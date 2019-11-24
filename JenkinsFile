@@ -1,0 +1,31 @@
+node('node-10-slave') {
+    timestamps {
+        try {
+            stage('Checkout') {
+                cleanNode()
+                checkout([$class: 'GitSCM', branches: [[name: '**/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CheckoutOption', timeout: 180], [$class: 'CloneOption', depth: 0, noTags: true, reference: '', shallow: true, timeout: 120], [$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:kjayachandra2000/cypress-code.git']]])
+                currentBuild.description = 'Git Commit: ' + sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+            }
+            stage('Get Dependencies') {
+                sh """
+                cd ${WORKSPACE}
+                npm ci
+                """
+            }
+            stage('UI Tests') {
+                try {
+                    sh """
+                    npm run test
+                    """
+                } catch (Exception e) {
+                    throw e
+                } finally {
+                    allure includeProperties: false, jdk: '', report: 'allure-report', results: [[path: 'allure-results']]
+                }
+                currentBuild.result = 'SUCCESS'
+            }
+        } catch (Exception e) {
+            throw e
+        }
+    }
+}
