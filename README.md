@@ -13,7 +13,7 @@ You should have Node.js installed. If you don't have Node installed, I recommend
     
 Once node is installed, execute:   
 
-    npm install
+    npm ci
 
 ### How do I run the tests on my local machine?
 
@@ -21,10 +21,6 @@ Once node is installed, execute:
     
 ### Launch Arguments
 By default tests are executed using a Chrome browser. 
-
-To switch the browser under test:
- 
-    npm test -- --browser=firefox 
 
 To run tests in headless mode:
 
