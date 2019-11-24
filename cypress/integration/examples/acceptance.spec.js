@@ -1,3 +1,7 @@
+import homePage from "../../support/pages/Home.page";
+import pairTradePage from "../../support/pages/PairTrade.page";
+import morePage from "../../support/pages/More.page";
+
 describe('Acceptance Criteria', () => {
   beforeEach(() => {
     cy.visit('');
@@ -8,18 +12,19 @@ describe('Acceptance Criteria', () => {
     const quantity = 10;
     var total = (price * quantity).toFixed(8);
     cy.visit('/trade/ETH_BTC');
-    cy.get('#FormRow-BUY-price').clear().type(price.toString());
-    cy.get('#FormRow-BUY-quantity').clear().type(quantity.toString());
-    cy.get('#FormRow-BUY-total').focus().should('value', total.toString());
-    cy.get('#orderForm-button-exchangelimitBuy').should('not.exist');
+
+    pairTradePage
+      .fillPriceAndQuantity(price, quantity)
+      .verifyTotal(total)
+      .submitButtonNotExist();
   });
 
   it('user should be able to navigate to Pair trading view', () => {
-    cy.get('header > a:nth-child(3)').focus().click();
-    cy.get('#home-button-favorites').should('be.visible');
-    cy.get("a[href$='trade/ETH_BTC']").click();
-    cy.get('.chartContainer .line').should('be.visible');
-    cy.get('.ReactVirtualized__Grid__innerScrollContainer').should('be.visible');
-    cy.get('label[for=FormRow-BUY-price]').should('be.visible');
+    homePage
+      .openMarkets();
+    morePage
+      .openPairTradingView();
+    pairTradePage
+      .isDisplayed();
   });
 });
