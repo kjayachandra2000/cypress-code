@@ -33,3 +33,11 @@ To run tests in Chrome browser:
 ## Generate Allure report 
     
     npm run report
+
+## Coding Challenge Test Reports
+
+### Home Spec test report
+![](https://github.com/kjayachandra2000/cypress-code/blob/master/report-gif/home.spec.js.gif)
+
+### PairTrade Spec test report
+![](https://github.com/kjayachandra2000/cypress-code/blob/master/report-gif/pairTrade.spec.gif)
