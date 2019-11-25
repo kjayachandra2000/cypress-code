@@ -1,5 +1,5 @@
 {
-  "name": "cyps",
+  "name": "cypress-code",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,10 @@
     "report": "./node_modules/.bin/allure generate allure-results --clean -o allure-report && allure open -h localhost",
     "lint": "eslint . ",
     "clean": "rm -r allure-results/ allure-report/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kjayachandra2000/cypress-code.git"
   },
   "keywords": [],
   "author": "",

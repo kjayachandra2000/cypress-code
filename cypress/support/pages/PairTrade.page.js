@@ -1,8 +1,15 @@
+// import  AllureReporter  from "mocha-allure-reporter";
+
 class PairTrade {
     get txtPrice() { return '#FormRow-BUY-price'; }
     get txtQuantity() { return '#FormRow-BUY-quantity'; }
     get txtTotal() { return '#FormRow-BUY-total'; }
     get btnSubmit() { return '#orderForm-button-exchangelimitBuy'; }
+
+    open() {
+        cy.visit('/trade/ETH_BTC');
+        return this;
+    }
 
     isDisplayed() {
         cy.get(this.txtTotal).should('visible');
