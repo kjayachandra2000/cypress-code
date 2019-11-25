@@ -1,5 +1,13 @@
 # Functional UI Coding Challenge Tests
 
+## License
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+## Build Status
+![Badge](https://github.com/jenkinsci/embeddable-build-status-plugin/blob/master/src/doc/flat_unconfigured.svg)
+
+above is a sample badge
+
 ## Summary
 This directory contains the UI Tests for the  front-end projects, these tests are written in nodejs using [mocha](https://mochajs.org/) test framework, [cypress](https://www.cypress.io/), and [Allure](https://www.npmjs.com/package/@wdio/allure-reporter) for reporting.
 
@@ -33,6 +41,10 @@ To run tests in Chrome browser:
 ## Generate Allure report 
     
     npm run report
+
+## Run tests on jenkins ci machine
+
+    Please use the Jenkins File to configure the jenkins pipeline to run the test
 
 ## Coding Challenge Test Reports
 
